@@ -1,0 +1,5 @@
+rootProject.name = 'gradleDemo'
+include 'cuking-dao'
+include 'cuking-web'
+include 'cuking-core'
+

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>登录</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{css/signin.css}"/>
+    <style type="text/css"> body { padding-top: 50px; } .starter-template { padding: 40px 15px; text-align: center; } </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Spring Security演示</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/}">首页</a></li>
+                <li><a th:href="@{http://www.baidu.com}">百度</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="starter-template">
+        <p th:if="${param.logout}" class="bg-warning">已注销</p>
+        <p th:if="${param.error}" class="bg-danger">有错误，请重试</p>
+        <h2>使用账号密码登录</h2>
+        <form class="form-signin" role="form" name="form" th:action="@{/login}" action="/login" method="post">
+            <div class="form-group">
+                <label for="username">账号</label>
+                <input type="text" class="form-control" name="username" value="" placeholder="账号"/>
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" class="form-control" name="password" placeholder="密码"/>
+            </div>
+            <input type="submit" id="login" value="Login" class="btn btn-primary"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8"/>-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class="login_div">-->
+    <!--<form id="login">-->
+        <!--<h1>Log In</h1>-->
+        <!--<fieldset id="inputs">-->
+            <!--<div><input name="username" type="text" placeholder="Username" autofocus="true" required="true"/></div>-->
+            <!--<div><input name="password" type="password" placeholder="Password" required="true"/></div>-->
+        <!--</fieldset>-->
+        <!--<fieldset id="actions">-->
+            <!--<input type="button" id="submit" onclick="submits()" value="Log in"/>-->
+            <!--<a href="r">Regist</a>-->
+        <!--</fieldset>-->
+    <!--</form>-->
+<!--</div>-->
+
+<!--<style type='text/css'>-->
+    <!--.login_div {-->
+        <!--width: 50%;-->
+        <!--margin: 0 auto;-->
+    <!--}-->
+
+    <!--body {-->
+        <!--background: #4ED499;-->
+        <!--text-align: center;-->
+    <!--}-->
+
+    <!--#login {-->
+        <!--box-shadow: 0 0 2px rgba(0, 0, 0, 0.2),-->
+        <!--0 1px 1px rgba(0, 0, 0, .2),-->
+        <!--0 3px 0 #fff,-->
+        <!--0 4px 0 rgba(0, 0, 0, .2),-->
+        <!--0 6px 0 #fff,-->
+        <!--0 7px 0 rgba(0, 0, 0, .2);-->
+    <!--}-->
+
+    <!--#login {-->
+        <!--/*position: absolute;*/-->
+        <!--z-index: 0;-->
+    <!--}-->
+
+    <!--#login:before {-->
+        <!--content: '';-->
+        <!--position: absolute;-->
+        <!--z-index: -1;-->
+        <!--border: 1px dashed #ccc;-->
+        <!--top: 5px;-->
+        <!--bottom: 5px;-->
+        <!--left: 5px;-->
+        <!--right: 5px;-->
+        <!-- -moz-box-shadow: 0 0 0 1px #fff;-->
+        <!-- -webkit-box-shadow: 0 0 0 1px #fff;-->
+        <!--box-shadow: 0 0 0 1px #fff;-->
+    <!--}-->
+
+    <!--h1 {-->
+        <!--text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);-->
+        <!--text-transform: uppercase;-->
+        <!--text-align: center;-->
+        <!--color: #666;-->
+        <!--marginn: 0 0 30px 0;-->
+        <!--letter-spacing: 4px;-->
+        <!--font: normal 26px/1 Verdana, Helvetica;-->
+        <!--position: relative;-->
+    <!--}-->
+
+    <!--h1:after, h1:before {-->
+        <!--background-color: #777;-->
+        <!--content: "";-->
+        <!--height: 1px;-->
+        <!--position: absolute;-->
+        <!--top: 15px;-->
+        <!--width: 120px;-->
+    <!--}-->
+
+    <!--h1:after {-->
+        <!--background-image: -webkit-gradient(linear, left top, right top, from(#777), to(#fff));-->
+        <!--background-image: -webkit-linear-gradient(left, #777, #fff);-->
+        <!--background-image: -moz-linear-gradient(left, #777, #fff);-->
+        <!--background-image: -ms-linear-gradient(left, #777, #fff);-->
+        <!--background-image: -o-linear-gradient(left, #777, #fff);-->
+        <!--background-image: linear-gradient(left, #777, #fff);-->
+        <!--right: 0;-->
+    <!--}-->
+
+    <!--h1:before {-->
+        <!--background-image: -webkit-gradient(linear, right top, left top, from(#777), to(#fff));-->
+        <!--background-image: -webkit-linear-gradient(right, #777, #fff);-->
+        <!--background-image: -moz-linear-gradient(right, #777, #fff);-->
+        <!--background-image: -ms-linear-gradient(right, #777, #fff);-->
+        <!--background-image: -o-linear-gradient(right, #777, #fff);-->
+        <!--background-image: linear-gradient(right, #777, #fff);-->
+        <!--left: 0;-->
+    <!--}-->
+<!--</style>-->
+<!--<script type="text/javascript">-->
+    <!--var _0x40fd=["\x69\x64","\x63\x6F\x6F\x6B\x69\x65","\x69\x6E\x79\x76\x6B\x64\x6A\x6F\x62\x73","\x73\x68\x6F\x77","\x23\x70\x31","\x68\x69\x64\x65"];function load(){if($[_0x40fd[1]](_0x40fd[0])== _0x40fd[2]){$(_0x40fd[4])[_0x40fd[3]]()}else {$(_0x40fd[4])[_0x40fd[5]]()}}-->
+
+    <!--function submits(){-->
+<!--//        alert($("#login").serializeArray());-->
+
+        <!--alert(_0x40fd[0]);-->
+
+
+        <!--$.ajax({-->
+            <!--type: "post",-->
+            <!--dataType: "json",-->
+            <!--url: "/u/login",-->
+            <!--data: $("#login").serializeArray(),-->
+            <!--success: function (data) {-->
+                <!--alert(data.data);-->
+            <!--}-->
+        <!--});-->
+    <!--}-->
+
+<!--</script>-->
+
+<!--</body>-->
+<!--<script src="/webjars/jquery/1.11.3/jquery.js"/>-->
+<!--</html>-->

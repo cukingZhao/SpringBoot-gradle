@@ -1,0 +1,66 @@
+group 'com.cuking'
+version '1.0-SNAPSHOT'
+
+
+jar {
+    baseName = 'cuking-web'
+    version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+    compile project(':cuking-dao')
+    compile project(':cuking-core')
+    compile group: 'org.webjars', name: 'jquery', version: '1.11.3'
+    compile("org.springframework.boot:spring-boot-starter-web:1.4.3.RELEASE")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '1.4.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '1.4.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.4.3.RELEASE'
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '3.0.0.RELEASE'
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//ext {
+//    profile = project['profile']
+//}
+//
+//def loadGroovy(){
+//    def configFile = file('config.groovy')
+//    new ConfigSlurper(profile).parse(configFile.toURL()).toProperties()
+//}
+//
+//processResources {
+//    from(sourceSets.main.resources.srcDirs) {
+//        filter(org.apache.tools.ant.filters.ReplaceTokens,
+//                tokens: loadGroovyConfig()
+//        )
+//    }
+//}
+//sourceSets {
+//    main {
+//        output.resourcesDir = "${buildDir}/classes/main"
+//    }
+//}
+
+
+//apply plugin: 'jetty'
+//jettyRun {
+//    contextPath = '/'
+//    reload = 'manual'
+//    webDefaultXml = file('webdefault.xml')
+//}
+//
+//httpPort = 8080
+//stopPort = 8011
+//stopKey = 'jetty6'
+
+

@@ -1,0 +1,84 @@
+group 'com.cuking'
+version '1.1.1-SNAPSHOT'
+def artifactId = "gradleDemo"
+
+
+//构建时的依赖
+buildscript {
+    ext {
+        springBootVersion = '1.4.0.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        maven { url "https://repo.grails.org/grails/core" }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        //springboot 插件依赖
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.springframework:springloaded:1.2.6.RELEASE")
+        classpath("org.springframework.build.gradle:propdeps-plugin:0.0.6")
+    }
+}
+
+allprojects {
+    //插件
+    apply plugin: 'java'
+    apply plugin: 'groovy'
+    apply plugin: 'idea'
+    apply plugin: 'spring-boot'
+    apply plugin: 'maven'
+
+    dependencies {
+        compile 'org.codehaus.groovy:groovy-all:2.3.6'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.3.RELEASE'
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+
+    repositories {
+        mavenLocal()
+        maven { url "https://repo.grails.org/grails/core" }
+        jcenter()
+        mavenCentral()
+    }
+
+    //使用gradle intall 安装到.m2的本地仓库
+    install {
+        repositories.mavenInstaller {
+            pom.version = "$project.version"
+            pom.artifactId = "$artifactId"
+            pom.groupId = "$project.group"
+        }
+    }
+
+    //上传到nexus    gradle uploadArchives
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository(url: "http://maven.gxcards.com:4944/nexus/content/repositories/snapshots/") {
+                    authentication(userName: "admin", password: "gx123456")
+                }
+                pom.version = "1.1.1-SNAPSHOT"
+                pom.artifactId = "$artifactId"
+                pom.groupId = "com.cuking"
+            }
+        }
+    }
+}
+
+//设置打包方式
+//apply plugin: 'war'
+
+
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+//
+[compileJava, javadoc, compileTestJava]*.options*.encoding = 'UTF-8'
+
+
+
+

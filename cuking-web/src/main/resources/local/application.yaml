@@ -1,0 +1,44 @@
+#查看springboot开启了哪些配置
+debug: false
+
+
+spring:
+  profiles:
+    active: test
+
+---
+#开发环境配置
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://101.201.51.207:3306/spring_boot_test?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: gx123456
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 8080
+
+
+---
+#测试环境配置
+spring:
+  profiles: test
+  datasource:
+      url: jdbc:mysql://101.201.51.207:3306/spring_boot_test1?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: gx123456
+      driver-class-name: com.mysql.jdbc.Driver
+
+
+server:
+  port: 8081
+
+
+---
+#生产环境配置
+
+spring:
+  profiles: pro
+
+server:
+  port: 8082

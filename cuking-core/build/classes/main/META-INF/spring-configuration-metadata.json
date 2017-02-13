@@ -1,0 +1,35 @@
+{
+  "groups": [{
+    "name": "myProps",
+    "type": "com.cuking.confing.MyConfig",
+    "sourceType": "com.cuking.confing.MyConfig"
+  }],
+  "properties": [
+    {
+      "name": "myProps.array-props",
+      "type": "java.lang.String[]",
+      "sourceType": "com.cuking.confing.MyConfig"
+    },
+    {
+      "name": "myProps.list-prop1",
+      "type": "java.util.List<java.util.Map<java.lang.String,java.lang.String>>",
+      "sourceType": "com.cuking.confing.MyConfig"
+    },
+    {
+      "name": "myProps.list-prop2",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.cuking.confing.MyConfig"
+    },
+    {
+      "name": "myProps.map-props",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.cuking.confing.MyConfig"
+    },
+    {
+      "name": "myProps.simple-prop",
+      "type": "java.lang.String",
+      "sourceType": "com.cuking.confing.MyConfig"
+    }
+  ],
+  "hints": []
+}

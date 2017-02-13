@@ -1,0 +1,119 @@
+#查看springboot开启了哪些配置
+debug: false
+
+
+spring:
+  profiles:
+    #默认的配置文件
+    active: dev
+
+  #模板配置 thymeleaf
+  thymeleaf:
+    # Enable template caching.
+    cache: true
+    # Check that the templates location exists.
+    check-template-location: true
+    # Content-Type value.
+    content-type: text/html
+    # Enable MVC Thymeleaf view resolution.
+    enabled: true
+    # Template encoding.
+    encoding: UTF-8
+    # Template mode to be applied to templates. See also StandardTemplateModeHandlers.
+    mode: HTML5
+    # Prefix that gets prepended to view names when building a URL.
+    prefix: classpath:/templates/
+    # Suffix that gets appended to view names when building a URL.
+    suffix: .html
+
+# java -jar xxxxx.jar --spring.profiles.active=test  表示加载测试环境的配置
+---
+#开发环境的配置
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://101.201.51.207:3306/spring_boot_test?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: gx123456
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa.properties.hibernate.hbm2ddl.auto: update
+
+server:
+  port: 8080
+
+myProps: #自定义的属性和值
+  simpleProp: dev
+  arrayProps: 1,2,3,4,5
+  listProp1:
+    - name: abc
+      value: abcValue
+    - name: efg
+      value: efgValue
+  listProp2:
+    - config2Value1
+    - config2Vavlue2
+  mapProps:
+    key1: value1
+    key2: value2
+
+
+---
+#测试环境的配置
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:mysql://101.201.51.207:3306/spring_boot_test1?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: gx123456
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa.properties.hibernate.hbm2ddl.auto: update
+
+server:
+  port: 8081
+
+myProps: #自定义的属性和值
+  simpleProp: test
+  arrayProps: 1,2,3,4,5
+  listProp1:
+    - name: abc
+      value: abcValue
+    - name: efg
+      value: efgValue
+  listProp2:
+    - config2Value1
+    - config2Vavlue2
+  mapProps:
+    key1: value1
+    key2: value2
+
+
+---
+#生产环境的配置
+spring:
+  profiles: pro
+  datasource:
+    url: jdbc:mysql://101.201.51.207:3306/spring_boot_test1?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: gx123456
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa.properties.hibernate.hbm2ddl.auto: update
+server:
+  port: 8083
+
+
+
+myProps: #自定义的属性和值
+  simpleProp: pro
+  arrayProps: 1,2,3,4,5
+  listProp1:
+    - name: abc
+      value: abcValue
+    - name: efg
+      value: efgValue
+  listProp2:
+    - config2Value1
+    - config2Vavlue2
+  mapProps:
+    key1: value1
+    key2: value2
+

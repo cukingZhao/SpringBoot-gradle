@@ -1,0 +1,17 @@
+group 'com.cuking'
+version '1.0-SNAPSHOT'
+
+
+jar {
+    baseName = 'cuking-dao'
+    version = '0.0.1-SNAPSHOT'
+}
+
+
+dependencies {
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.21'
+    compile ("org.springframework.boot:spring-boot-starter-data-jpa:1.4.3.RELEASE")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.4.3.RELEASE'
+}
+
+
